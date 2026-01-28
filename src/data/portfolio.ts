@@ -70,14 +70,14 @@ export interface Achievement {
 
 export const achievements: Achievement[] = [
   {
-    year: "1996",
-    title: "Founded Bank of Abyssinia",
-    description: "Established one of Ethiopia's first private banks, pioneering modern banking services."
-  },
-  {
     year: "1995",
     title: "Co-Founded Nile Insurance",
     description: "Launched a leading insurance company to serve Ethiopian businesses and individuals."
+  },
+  {
+    year: "1996",
+    title: "Founded Bank of Abyssinia",
+    description: "Established one of Ethiopia's first private banks, pioneering modern banking services."
   },
   {
     year: "2010s",

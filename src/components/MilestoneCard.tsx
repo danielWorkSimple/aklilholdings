@@ -4,9 +4,10 @@ import type { Achievement } from '@/data/portfolio'
 interface MilestoneCardProps {
   achievement: Achievement
   index: number
+  isLast: boolean
 }
 
-export default function MilestoneCard({ achievement, index }: MilestoneCardProps) {
+export default function MilestoneCard({ achievement, index, isLast }: MilestoneCardProps) {
   const isEven = index % 2 === 0
 
   return (
@@ -27,7 +28,7 @@ export default function MilestoneCard({ achievement, index }: MilestoneCardProps
         <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center">
           <CheckCircle className="h-5 w-5 text-navy" />
         </div>
-        {index < 4 && <div className="w-0.5 h-24 bg-navy-light" />}
+        {!isLast && <div className="w-0.5 h-24 bg-navy-light" />}
       </div>
 
       {/* Spacer for alternating layout */}

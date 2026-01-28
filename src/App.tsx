@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -9,10 +10,21 @@ import Achievements from '@/pages/Achievements'
 import Contact from '@/pages/Contact'
 import NotFound from '@/pages/NotFound'
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return null
+}
+
 function App() {
   return (
     <HelmetProvider>
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <div className="flex-1">

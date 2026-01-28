@@ -32,7 +32,7 @@ export default function Achievements() {
           </h2>
           <div className="space-y-8">
             {achievements.map((achievement, index) => (
-              <MilestoneCard key={index} achievement={achievement} index={index} />
+              <MilestoneCard key={index} achievement={achievement} index={index} isLast={index === achievements.length - 1} />
             ))}
           </div>
         </div>
