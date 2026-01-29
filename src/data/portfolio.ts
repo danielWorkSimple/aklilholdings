@@ -112,17 +112,6 @@ export const companies: Company[] = [
   }
 ]
 
-export const sectors = [
-  "Food Production & Agro-Processing",
-  "Trading & Distribution",
-  "Garment Manufacturing",
-  "Hospitality",
-  "Real Estate",
-  "Healthcare",
-  "Financial Services",
-  "Technology"
-]
-
 export interface Achievement {
   year: string
   title: string

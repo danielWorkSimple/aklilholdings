@@ -23,9 +23,9 @@ export default function StatsBar() {
     <section className="bg-navy-light/50 border-y border-navy-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div
-              key={index}
+              key={stat.label}
               className="flex items-center justify-center space-x-4 text-center md:text-left"
             >
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">

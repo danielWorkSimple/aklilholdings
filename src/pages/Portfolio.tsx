@@ -1,20 +1,31 @@
-import { useMemo } from 'react'
 import CompanyCard from '@/components/CompanyCard'
 import SEO from '@/components/SEO'
 import AnimatedSection from '@/components/AnimatedSection'
-import { companies, sectorOrder } from '@/data/portfolio'
+import { companies, sectorOrder, type Company } from '@/data/portfolio'
+
+function getCompaniesBySector(): Record<string, Company[]> {
+  const grouped: Record<string, Company[]> = {}
+  for (const sector of sectorOrder) {
+    const sectorCompanies = companies.filter(c => c.sector === sector)
+    if (sectorCompanies.length > 0) {
+      grouped[sector] = sectorCompanies
+    }
+  }
+  return grouped
+}
+
+const companiesBySector = getCompaniesBySector()
+
+function StatItem({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="text-center">
+      <p className="text-3xl font-bold text-gold">{value}</p>
+      <p className="text-text-muted text-sm">{label}</p>
+    </div>
+  )
+}
 
 export default function Portfolio() {
-  const companiesBySector = useMemo(() => {
-    const grouped: Record<string, typeof companies> = {}
-    for (const sector of sectorOrder) {
-      const sectorCompanies = companies.filter(c => c.sector === sector)
-      if (sectorCompanies.length > 0) {
-        grouped[sector] = sectorCompanies
-      }
-    }
-    return grouped
-  }, [])
 
   return (
     <main className="pt-20">
@@ -38,18 +49,9 @@ export default function Portfolio() {
           {/* Stats Summary */}
           <AnimatedSection animation="fade-up" delay={0.2}>
             <div className="flex flex-wrap justify-center gap-8 mt-8">
-              <div className="text-center">
-                <p className="text-3xl font-bold text-gold">11</p>
-                <p className="text-text-muted text-sm">Companies</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-gold">8</p>
-                <p className="text-text-muted text-sm">Sectors</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-gold">30+</p>
-                <p className="text-text-muted text-sm">Years Experience</p>
-              </div>
+              <StatItem value="11" label="Companies" />
+              <StatItem value="8" label="Sectors" />
+              <StatItem value="30+" label="Years Experience" />
             </div>
           </AnimatedSection>
         </div>
