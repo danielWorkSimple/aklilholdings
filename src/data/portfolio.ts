@@ -10,13 +10,13 @@ export interface Company {
 }
 
 export const sectorOrder = [
+  'Financial Services',
   'Food Production & Agro-Processing',
   'Trading & Distribution',
   'Garment Manufacturing',
   'Hospitality',
   'Real Estate',
   'Healthcare',
-  'Financial Services',
   'Technology'
 ]
 
@@ -81,8 +81,8 @@ export const companies: Company[] = [
     name: "Aklil Medical Office Building",
     sector: "Healthcare",
     role: "Owner",
-    description: "Outpatient medical facility providing healthcare services. Phase one completed.",
-    status: "operational"
+    description: "Outpatient medical facility providing healthcare services.",
+    status: "under-construction"
   },
   // Financial Services
   {
