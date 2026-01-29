@@ -1,20 +1,20 @@
-import { Building, Briefcase, TrendingUp } from 'lucide-react'
+import { Briefcase, Building2, TrendingUp } from 'lucide-react'
 
 const stats = [
   {
-    icon: Building,
-    value: "1996",
-    label: "Founded"
+    icon: Building2,
+    value: "11",
+    label: "Companies"
   },
   {
     icon: Briefcase,
-    value: "10+",
+    value: "8",
     label: "Sectors"
   },
   {
     icon: TrendingUp,
-    value: "Bank of Abyssinia",
-    label: "Flagship Investment"
+    value: "30+",
+    label: "Years Experience"
   }
 ]
 

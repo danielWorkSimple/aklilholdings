@@ -1,5 +1,6 @@
 import { GraduationCap, BookOpen, Award, User } from 'lucide-react'
 import SEO from '@/components/SEO'
+import AnimatedSection from '@/components/AnimatedSection'
 
 const education = [
   {
@@ -30,14 +31,14 @@ export default function About() {
       {/* Hero Section */}
       <section className="py-16 sm:py-20 bg-gradient-to-b from-navy to-dark-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <AnimatedSection className="text-center mb-12">
             <h1 className="text-4xl sm:text-5xl font-heading font-bold text-white mb-4">
               About the <span className="text-gold">Chairman</span>
             </h1>
             <p className="text-text-muted max-w-2xl mx-auto">
               Four decades of visionary leadership in Ethiopian business and investment.
             </p>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -46,7 +47,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
             {/* Photo Placeholder */}
-            <div className="lg:col-span-2">
+            <AnimatedSection animation="fade-right" className="lg:col-span-2">
               <div className="bg-dark-bg-light rounded-2xl border border-navy-light p-8 text-center">
                 <div className="w-48 h-48 mx-auto rounded-full bg-navy-light flex items-center justify-center mb-6">
                   <User className="w-24 h-24 text-gold/50" />
@@ -56,10 +57,10 @@ export default function About() {
                 </h2>
                 <p className="text-gold">Founder & Chairman</p>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Bio */}
-            <div className="lg:col-span-3 space-y-6">
+            <AnimatedSection animation="fade-left" delay={0.2} className="lg:col-span-3 space-y-6">
               <h3 className="text-2xl font-heading font-semibold text-white">
                 Biography
               </h3>
@@ -83,29 +84,61 @@ export default function About() {
                   building sustainable businesses.
                 </p>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* Education Section */}
+      {/* Aklil Holdings Section */}
       <section className="py-16 bg-dark-bg-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-2xl font-heading font-semibold text-white text-center mb-12">
-            Education & Credentials
-          </h3>
+          <AnimatedSection className="text-center mb-12">
+            <h3 className="text-2xl font-heading font-semibold text-white mb-4">
+              About Aklil Holdings
+            </h3>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up" delay={0.2}>
+            <div className="max-w-4xl mx-auto bg-dark-bg rounded-xl p-8 border border-navy-light">
+              <p className="text-text-light leading-relaxed mb-4">
+                Aklil Holdings is a diversified corporate body controlling a group of companies across Ethiopia and East Africa.
+                Under the leadership of Mr. Mekdes Aklilu, the holding company has built a portfolio spanning multiple strategic sectors
+                including food production and agro-processing, international trading and distribution, garment manufacturing,
+                hospitality, real estate development, healthcare, financial services, and technology.
+              </p>
+              <p className="text-text-light leading-relaxed">
+                With over three decades of business experience, Aklil Holdings continues to identify opportunities
+                that contribute to Ethiopia's economic development while creating sustainable value for stakeholders.
+                The company's approach combines local expertise with international best practices to build enterprises
+                that serve both domestic and regional markets.
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section className="py-16 bg-dark-bg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <h3 className="text-2xl font-heading font-semibold text-white">
+              Education & Credentials
+            </h3>
+          </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {education.map((edu, index) => (
-              <div
+              <AnimatedSection
                 key={index}
-                className="bg-dark-bg rounded-xl p-6 border border-navy-light text-center card-hover"
+                animation="fade-up"
+                delay={index * 0.15}
               >
-                <div className="w-14 h-14 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-4">
-                  <edu.icon className="h-7 w-7 text-gold" />
+                <div className="bg-dark-bg rounded-xl p-6 border border-navy-light text-center card-hover h-full">
+                  <div className="w-14 h-14 mx-auto rounded-full bg-gold/10 flex items-center justify-center mb-4">
+                    <edu.icon className="h-7 w-7 text-gold" />
+                  </div>
+                  <h4 className="text-lg font-semibold text-white mb-2">{edu.degree}</h4>
+                  <p className="text-gold text-sm">{edu.institution}</p>
                 </div>
-                <h4 className="text-lg font-semibold text-white mb-2">{edu.degree}</h4>
-                <p className="text-gold text-sm">{edu.institution}</p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>

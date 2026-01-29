@@ -1,5 +1,6 @@
 import { Mail, MapPin } from 'lucide-react'
 import SEO from '@/components/SEO'
+import AnimatedSection from '@/components/AnimatedSection'
 
 const contactInfo = [
   {
@@ -27,14 +28,14 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="py-16 sm:py-20 bg-gradient-to-b from-navy to-dark-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <AnimatedSection className="text-center mb-12">
             <h1 className="text-4xl sm:text-5xl font-heading font-bold text-white mb-4">
               Get in <span className="text-gold">Touch</span>
             </h1>
             <p className="text-text-muted max-w-2xl mx-auto">
               We welcome inquiries about investment opportunities and partnerships.
             </p>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -43,29 +44,32 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {contactInfo.map((item, index) => (
-              <div
+              <AnimatedSection
                 key={index}
-                className="bg-dark-bg-light rounded-xl p-6 border border-navy-light card-hover"
+                animation="fade-up"
+                delay={index * 0.15}
               >
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="h-6 w-6 text-gold" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-medium text-text-muted mb-1">{item.label}</h3>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="text-lg text-white hover:text-gold transition-colors"
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <p className="text-lg text-white">{item.value}</p>
-                    )}
+                <div className="bg-dark-bg-light rounded-xl p-6 border border-navy-light card-hover h-full">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="h-6 w-6 text-gold" />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-medium text-text-muted mb-1">{item.label}</h3>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="text-lg text-white hover:text-gold transition-colors"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="text-lg text-white">{item.value}</p>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -74,20 +78,22 @@ export default function Contact() {
       {/* Additional Info Section */}
       <section className="py-16 bg-dark-bg-light">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-heading font-semibold text-white mb-6">
-            Investment Inquiries
-          </h2>
-          <p className="text-text-muted max-w-2xl mx-auto mb-8">
-            For investment opportunities, partnership proposals, or general inquiries,
-            please reach out to us via email. Our team will respond within 2-3 business days.
-          </p>
-          <a
-            href="mailto:info@aklilholdings.com"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-md bg-gold text-navy font-medium hover:bg-gold-light transition-colors"
-          >
-            <Mail className="mr-2 h-5 w-5" />
-            Send us an Email
-          </a>
+          <AnimatedSection>
+            <h2 className="text-2xl font-heading font-semibold text-white mb-6">
+              Investment Inquiries
+            </h2>
+            <p className="text-text-muted max-w-2xl mx-auto mb-8">
+              For investment opportunities, partnership proposals, or general inquiries,
+              please reach out to us via email. Our team will respond within 2-3 business days.
+            </p>
+            <a
+              href="mailto:info@aklilholdings.com"
+              className="inline-flex items-center justify-center px-8 py-3 rounded-md bg-gold text-navy font-medium hover:bg-gold-light transition-colors"
+            >
+              <Mail className="mr-2 h-5 w-5" />
+              Send us an Email
+            </a>
+          </AnimatedSection>
         </div>
       </section>
     </main>
