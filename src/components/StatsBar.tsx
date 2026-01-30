@@ -1,18 +1,23 @@
-import { Briefcase, Building2, TrendingUp } from 'lucide-react'
+import { Briefcase, Building2, TrendingUp, Clock } from 'lucide-react'
 
 const stats = [
   {
     icon: Building2,
     value: "11",
-    label: "Companies"
-  },
-  {
-    icon: Briefcase,
-    value: "8",
-    label: "Sectors"
+    label: "Group Companies"
   },
   {
     icon: TrendingUp,
+    value: "60+",
+    label: "Total Investments"
+  },
+  {
+    icon: Briefcase,
+    value: "10+",
+    label: "Sectors"
+  },
+  {
+    icon: Clock,
     value: "30+",
     label: "Years Experience"
   }
@@ -22,7 +27,7 @@ export default function StatsBar() {
   return (
     <section className="bg-navy-light/50 border-y border-navy-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat) => (
             <div
               key={stat.label}
