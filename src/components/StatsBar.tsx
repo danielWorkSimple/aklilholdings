@@ -3,7 +3,7 @@ import { Briefcase, Building2, TrendingUp, Clock } from 'lucide-react'
 const stats = [
   {
     icon: Building2,
-    value: "13",
+    value: "11",
     label: "Group Companies"
   },
   {

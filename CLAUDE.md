@@ -10,7 +10,7 @@ Corporate website for Aklil Holdings, a diversified investment company led by Mr
 - Firebase Hosting for deployment
 
 ## Key Stats (as of Jan 2025)
-- 13 Group Companies (featured on portfolio page)
+- 11 Group Companies (featured on portfolio page)
 - 30+ Total Investments
 - 10+ Sectors
 - 30+ Years Experience
