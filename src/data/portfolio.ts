@@ -142,7 +142,7 @@ export const achievements: Achievement[] = [
   },
   {
     year: "1996",
-    title: "Founded Bank of Abyssinia",
+    title: "Co-Founded Bank of Abyssinia",
     description: "Established one of Ethiopia's first private banks, pioneering modern banking services."
   },
   {
