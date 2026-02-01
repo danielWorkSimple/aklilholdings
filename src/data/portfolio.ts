@@ -38,7 +38,7 @@ export const companies: Company[] = [
   },
   // Trading & Distribution
   {
-    name: "Wagtech Ethiopia PLC",
+    name: "Multiple Trading Companies",
     sector: "Trading & Distribution",
     role: "Owner",
     description: "Main trading arm for 3+ decades. International trade supplying educational materials, scientific and health instruments, exercise books, and electrical/electronics equipment for education and research.",
@@ -78,10 +78,10 @@ export const companies: Company[] = [
   },
   // Healthcare
   {
-    name: "Aklil Medical Office Building",
+    name: "Medical Plaza",
     sector: "Healthcare",
     role: "Owner",
-    description: "Outpatient medical facility providing healthcare services.",
+    description: "Healthcare complex designed to provide comprehensive outpatient and specialized medical services.",
     status: "under-construction"
   },
   // Financial Services
@@ -99,6 +99,22 @@ export const companies: Company[] = [
     role: "Co-Founder & Shareholder",
     description: "Co-founded insurance company providing comprehensive coverage solutions.",
     logo: "/images/nile.png",
+    status: "operational"
+  },
+  {
+    name: "Nisir Microfinance",
+    sector: "Financial Services",
+    role: "Founding Shareholder",
+    description: "Founding shareholder of innovative microfinance institution serving SMEs and the missing middle since 2014.",
+    logo: "/images/nisir.png",
+    status: "operational"
+  },
+  {
+    name: "Dynamic Microfinance",
+    sector: "Financial Services",
+    role: "Shareholder",
+    description: "Strategic turnaround investment in microfinance institution serving micro and small enterprises.",
+    logo: "/images/dynamic.jpg",
     status: "operational"
   },
   // Technology

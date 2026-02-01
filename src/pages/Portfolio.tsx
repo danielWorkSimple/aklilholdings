@@ -59,8 +59,8 @@ export default function Portfolio() {
           {/* Stats Summary */}
           <AnimatedSection animation="fade-up" delay={0.2}>
             <div className="flex flex-wrap justify-center gap-8 mt-8">
-              <StatItem value="11" label="Group Companies" />
-              <StatItem value="60+" label="Total Investments" />
+              <StatItem value="13" label="Group Companies" />
+              <StatItem value="30+" label="Total Investments" />
               <StatItem value="10+" label="Sectors" />
               <StatItem value="30+" label="Years Experience" />
             </div>

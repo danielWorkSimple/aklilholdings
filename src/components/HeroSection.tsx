@@ -29,7 +29,7 @@ export default function HeroSection() {
             Building Ethiopia's Future Through
           </p>
           <p className="text-xl sm:text-2xl md:text-3xl text-gold font-semibold mb-8 animate-fade-in-up animation-delay-200">
-            Strategic Investment
+            Strategic Investments
           </p>
 
           {/* Description */}

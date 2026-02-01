@@ -17,7 +17,7 @@ export default function SEO({
   ogImage = DEFAULT_OG_IMAGE
 }: SEOProps) {
   const fullTitle = title === 'Home'
-    ? 'Aklil Holdings - Building Ethiopia\'s Future Through Strategic Investment'
+    ? 'Aklil Holdings - Building Ethiopia\'s Future Through Strategic Investments'
     : `${title} | Aklil Holdings`
 
   const canonicalUrl = canonical || BASE_URL
