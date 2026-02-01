@@ -73,7 +73,7 @@ export const companies: Company[] = [
     name: "Tesfa Midir Realstate",
     sector: "Real Estate",
     role: "Owner",
-    description: "Office building in Piazza area (fully leased); Mixed-use building near CMC Michael (finishing phase).",
+    description: "Fully leased office building in Piazza and mixed-use development near CMC Michael in Addis Ababa; mixed-use building in Bahir Dar nearing completion.",
     status: "operational"
   },
   // Healthcare
