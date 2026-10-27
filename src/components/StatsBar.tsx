@@ -1,27 +1,14 @@
-import { Briefcase, Building2, TrendingUp, Clock } from 'lucide-react'
+import { Briefcase, Building2, TrendingUp, Clock, type LucideIcon } from 'lucide-react'
+import { stats as statValues } from '@/data/site'
 
-const stats = [
-  {
-    icon: Building2,
-    value: "11",
-    label: "Group Companies"
-  },
-  {
-    icon: TrendingUp,
-    value: "30+",
-    label: "Total Investments"
-  },
-  {
-    icon: Briefcase,
-    value: "10+",
-    label: "Sectors"
-  },
-  {
-    icon: Clock,
-    value: "30+",
-    label: "Years Experience"
-  }
-]
+const icons: Record<string, LucideIcon> = {
+  'Group Companies': Building2,
+  'Total Investments': TrendingUp,
+  'Sectors': Briefcase,
+  'Years Experience': Clock
+}
+
+const stats = statValues.map((stat) => ({ ...stat, icon: icons[stat.label] ?? Building2 }))
 
 export default function StatsBar() {
   return (

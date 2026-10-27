@@ -128,6 +128,16 @@ export const companies: Company[] = [
   }
 ]
 
+// Other sectors with investments, shown as a grid on the portfolio page
+export const otherInvestments = [
+  { name: 'Education & Training', icon: 'GraduationCap', description: 'Educational institutions and vocational training centers' },
+  { name: 'Logistics & Supply Chain', icon: 'Truck', description: 'Transportation, warehousing, and distribution networks' },
+  { name: 'Fintech', icon: 'Smartphone', description: 'Digital financial services and payment solutions' },
+  { name: 'Construction', icon: 'HardHat', description: 'Building and infrastructure development projects' },
+  { name: 'Import/Export', icon: 'Ship', description: 'International trade and commodity trading' },
+  { name: 'Agriculture', icon: 'Leaf', description: 'Farming operations and agricultural supply chains' }
+] as const
+
 export interface Achievement {
   year: string
   title: string

@@ -1,15 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { Home, ArrowLeft } from 'lucide-react'
-import SEO from '@/components/SEO'
 import { Button } from '@/components/ui/button'
+import { notFoundMeta } from '@/lib/seo'
+
+export const meta = () => notFoundMeta()
 
 export default function NotFound() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-dark-bg pt-20">
-      <SEO
-        title="Page Not Found"
-        description="The page you're looking for doesn't exist. Return to Aklil Holdings homepage."
-      />
       <div className="text-center px-4">
         <h1 className="text-8xl sm:text-9xl font-heading font-bold text-gold mb-4">404</h1>
         <h2 className="text-2xl sm:text-3xl font-heading text-white mb-4">

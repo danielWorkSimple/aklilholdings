@@ -1,16 +1,15 @@
 import MilestoneCard from '@/components/MilestoneCard'
-import SEO from '@/components/SEO'
 import AnimatedSection from '@/components/AnimatedSection'
 import { achievements } from '@/data/portfolio'
+import { pages } from '@/data/site'
+import { achievementsGraph } from '@/lib/jsonld'
+import { seo } from '@/lib/seo'
+
+export const meta = () => seo(pages.achievements, achievementsGraph())
 
 export default function Achievements() {
   return (
     <main className="pt-20">
-      <SEO
-        title="Achievements"
-        description="Four decades of milestones: from founding Bank of Abyssinia and Nile Insurance to building a diversified portfolio across 10+ sectors in Ethiopia."
-        canonical="https://aklilholdings.com/achievements"
-      />
       {/* Hero Section */}
       <section className="py-16 sm:py-20 bg-gradient-to-b from-navy to-dark-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,7 +18,7 @@ export default function Achievements() {
               Our <span className="text-gold">Journey</span>
             </h1>
             <p className="text-text-muted max-w-2xl mx-auto">
-              Four decades of milestones, building Ethiopia's economic future one investment at a time.
+              Milestones of Mr. Mekdes Aklilu and Aklil Holdings, from co-founding Nile Insurance and Bank of Abyssinia to investments across 10+ sectors in Ethiopia.
             </p>
           </AnimatedSection>
         </div>

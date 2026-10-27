@@ -71,3 +71,12 @@ export default defineConfig([
   },
 ])
 ```
+
+## Search and AI
+
+Every page is prerendered to static HTML at build time (React Router 7 framework mode, `ssr: false` with `prerender` in `react-router.config.ts`), so search engines and AI crawlers get each page's own title, description, canonical URL, Open Graph tags, JSON-LD and full text without running JavaScript. The browser then hydrates the page and navigation stays client-side.
+
+- **Where the facts live**: `src/data/site.ts` (page titles and descriptions, company facts, founder bio, stats, press) and `src/data/portfolio.ts` (companies, milestones).
+- **Generated at build time** from the same data: `robots.txt`, `sitemap.xml` and `llms.txt` (routes in `src/routes/`), the JSON-LD (`src/lib/jsonld.ts`) and `404.html`, which Firebase serves with status 404 for unknown URLs.
+- **Add a page**: create it in `src/pages/` with a `meta` export, add it to `src/routes.ts` and to `pages` in `src/data/site.ts`, then run `npm run build && npm run verify`.
+- **Check**: `npm run verify` checks the build output (titles, descriptions, canonicals, one h1, text, robots.txt, sitemap.xml, llms.txt, 404.html). `npm run preview` serves the build with the Firebase hosting emulator on http://127.0.0.1:5050.

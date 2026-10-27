@@ -1,6 +1,8 @@
-import { GraduationCap, BookOpen, Award, User } from 'lucide-react'
-import SEO from '@/components/SEO'
+import { GraduationCap, BookOpen, Award, User, ExternalLink } from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
+import { founder, pages, press } from '@/data/site'
+import { aboutGraph } from '@/lib/jsonld'
+import { seo } from '@/lib/seo'
 
 const education = [
   {
@@ -20,14 +22,11 @@ const education = [
   }
 ]
 
+export const meta = () => seo(pages.about, aboutGraph())
+
 export default function About() {
   return (
     <main className="pt-20">
-      <SEO
-        title="About"
-        description="Learn about Mr. Mekdes Aklilu, founder of Aklil Holdings, with four decades of visionary leadership in Ethiopian business, banking, insurance, and investment."
-        canonical="https://aklilholdings.com/about"
-      />
       {/* Hero Section */}
       <section className="py-16 sm:py-20 bg-gradient-to-b from-navy to-dark-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,9 +52,10 @@ export default function About() {
                   <User className="w-24 h-24 text-gold/50" />
                 </div>
                 <h2 className="text-2xl font-heading font-bold text-white mb-2">
-                  Mr. Mekdes Aklilu
+                  {founder.displayName}
                 </h2>
-                <p className="text-gold">Founder & Chairman</p>
+                <p lang="am" className="text-text-muted mb-2">{founder.amharicName}</p>
+                <p className="text-gold">{founder.role}</p>
               </div>
             </AnimatedSection>
 
@@ -65,24 +65,9 @@ export default function About() {
                 Biography
               </h3>
               <div className="space-y-4 text-text-light">
-                <p>
-                  Mr. Mekdes Aklilu is a distinguished Ethiopian businessman and investor
-                  with extensive experience spanning private and public institutional administration,
-                  education, insurance, banking, and international trade.
-                </p>
-                <p>
-                  Throughout his career, he has demonstrated exceptional leadership by chairing
-                  boards of leading corporate institutions in Ethiopia. His vision and strategic
-                  acumen have been instrumental in establishing and growing some of the country's
-                  most significant financial and commercial enterprises.
-                </p>
-                <p>
-                  As a founding shareholder of Bank of Abyssinia and Nile Insurance, Mr. Aklilu
-                  has played a pivotal role in modernizing Ethiopia's financial services sector.
-                  His investments span across banking, insurance, hospitality, technology,
-                  agro-processing, and industrial trading, reflecting a diversified approach to
-                  building sustainable businesses.
-                </p>
+                {founder.bio.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
             </AnimatedSection>
           </div>
@@ -138,6 +123,45 @@ export default function About() {
                   <h4 className="text-lg font-semibold text-white mb-2">{edu.degree}</h4>
                   <p className="text-gold text-sm">{edu.institution}</p>
                 </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Press Section */}
+      <section className="py-16 bg-dark-bg-light">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <h3 className="text-2xl font-heading font-semibold text-white">
+              In the Press
+            </h3>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {press.map((item, index) => (
+              <AnimatedSection
+                key={item.url}
+                animation="fade-up"
+                delay={index * 0.15}
+              >
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block bg-dark-bg rounded-xl p-6 border border-navy-light card-hover h-full"
+                >
+                  <p className="text-gold text-sm mb-3">
+                    {item.publisher} · <time dateTime={item.date}>{item.dateLabel}</time>
+                  </p>
+                  <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-gold transition-colors">
+                    {item.headline}
+                  </h4>
+                  <p className="text-text-muted text-sm mb-4">{item.note}</p>
+                  <span className="inline-flex items-center text-sm text-gold">
+                    Read the article
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </span>
+                </a>
               </AnimatedSection>
             ))}
           </div>

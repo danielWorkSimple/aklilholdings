@@ -1,6 +1,8 @@
 import { Mail, MapPin } from 'lucide-react'
-import SEO from '@/components/SEO'
 import AnimatedSection from '@/components/AnimatedSection'
+import { pages } from '@/data/site'
+import { contactGraph } from '@/lib/jsonld'
+import { seo } from '@/lib/seo'
 
 const contactInfo = [
   {
@@ -17,14 +19,11 @@ const contactInfo = [
   },
 ]
 
+export const meta = () => seo(pages.contact, contactGraph())
+
 export default function Contact() {
   return (
     <main className="pt-20">
-      <SEO
-        title="Contact"
-        description="Get in touch with Aklil Holdings for investment opportunities and partnership inquiries. Email: info@aklilholdings.com"
-        canonical="https://aklilholdings.com/contact"
-      />
       {/* Hero Section */}
       <section className="py-16 sm:py-20 bg-gradient-to-b from-navy to-dark-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,7 +32,7 @@ export default function Contact() {
               Get in <span className="text-gold">Touch</span>
             </h1>
             <p className="text-text-muted max-w-2xl mx-auto">
-              We welcome inquiries about investment opportunities and partnerships.
+              Aklil Holdings welcomes inquiries about investment opportunities and partnerships.
             </p>
           </AnimatedSection>
         </div>

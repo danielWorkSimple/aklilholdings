@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { Mail, MapPin } from 'lucide-react'
 
 const quickLinks = [
@@ -65,7 +65,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-navy-light">
-          <p className="text-text-muted text-sm text-center">
+          <p className="text-text-muted text-sm text-center" suppressHydrationWarning>
             &copy; {currentYear} Aklil Holdings. All rights reserved.
           </p>
         </div>

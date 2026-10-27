@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { ArrowRight, Briefcase, User, Trophy } from 'lucide-react'
 import HeroSection from '@/components/HeroSection'
 import StatsBar from '@/components/StatsBar'
-import SEO from '@/components/SEO'
 import AnimatedSection from '@/components/AnimatedSection'
 import { Button } from '@/components/ui/button'
+import { company, pages } from '@/data/site'
+import { homeGraph } from '@/lib/jsonld'
+import { seo } from '@/lib/seo'
 
 const quickLinks = [
   {
@@ -30,14 +32,11 @@ const quickLinks = [
   }
 ]
 
+export const meta = () => seo(pages.home, homeGraph())
+
 export default function Home() {
   return (
     <main>
-      <SEO
-        title="Home"
-        description="Aklil Holdings is a diversified investment company led by Mr. Mekdes Aklilu, with investments in banking, insurance, hospitality, and technology across Ethiopia."
-        canonical="https://aklilholdings.com"
-      />
       <HeroSection />
       <StatsBar />
 
@@ -49,7 +48,7 @@ export default function Home() {
               Discover Aklil Holdings
             </h2>
             <p className="text-text-muted max-w-2xl mx-auto">
-              A legacy of strategic investment and leadership shaping Ethiopia's economic landscape.
+              {company.summary}
             </p>
           </AnimatedSection>
 

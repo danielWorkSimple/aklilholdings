@@ -1,8 +1,10 @@
 import { GraduationCap, Truck, Smartphone, HardHat, Ship, Leaf } from 'lucide-react'
 import CompanyCard from '@/components/CompanyCard'
-import SEO from '@/components/SEO'
 import AnimatedSection from '@/components/AnimatedSection'
-import { companies, sectorOrder, type Company } from '@/data/portfolio'
+import { companies, otherInvestments, sectorOrder, type Company } from '@/data/portfolio'
+import { pages, stats } from '@/data/site'
+import { portfolioGraph } from '@/lib/jsonld'
+import { seo } from '@/lib/seo'
 
 function getCompaniesBySector(): Record<string, Company[]> {
   const grouped: Record<string, Company[]> = {}
@@ -26,24 +28,15 @@ function StatItem({ value, label }: { value: string; label: string }) {
   )
 }
 
-const otherInvestments = [
-  { name: 'Education & Training', icon: GraduationCap, description: 'Educational institutions and vocational training centers' },
-  { name: 'Logistics & Supply Chain', icon: Truck, description: 'Transportation, warehousing, and distribution networks' },
-  { name: 'Fintech', icon: Smartphone, description: 'Digital financial services and payment solutions' },
-  { name: 'Construction', icon: HardHat, description: 'Building and infrastructure development projects' },
-  { name: 'Import/Export', icon: Ship, description: 'International trade and commodity trading' },
-  { name: 'Agriculture', icon: Leaf, description: 'Farming operations and agricultural supply chains' }
-]
+const investmentIcons = { GraduationCap, Truck, Smartphone, HardHat, Ship, Leaf }
+const otherInvestmentCards = otherInvestments.map((o) => ({ ...o, icon: investmentIcons[o.icon] }))
+
+export const meta = () => seo(pages.portfolio, portfolioGraph())
 
 export default function Portfolio() {
 
   return (
     <main className="pt-20">
-      <SEO
-        title="Portfolio"
-        description="Explore Aklil Holdings' investment portfolio across food production, trading, hospitality, real estate, healthcare, financial services, and technology in Ethiopia."
-        canonical="https://aklilholdings.com/portfolio"
-      />
       {/* Hero Section */}
       <section className="py-16 sm:py-20 bg-gradient-to-b from-navy to-dark-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,17 +45,16 @@ export default function Portfolio() {
               Investment <span className="text-gold">Portfolio</span>
             </h1>
             <p className="text-text-muted max-w-2xl mx-auto">
-              A diversified portfolio spanning financial services, food production, hospitality, real estate, healthcare, technology, and beyond.
+              A diversified portfolio in Ethiopia spanning financial services, food production, hospitality, real estate, healthcare, technology, and beyond.
             </p>
           </AnimatedSection>
 
           {/* Stats Summary */}
           <AnimatedSection animation="fade-up" delay={0.2}>
             <div className="flex flex-wrap justify-center gap-8 mt-8">
-              <StatItem value="11" label="Group Companies" />
-              <StatItem value="30+" label="Total Investments" />
-              <StatItem value="10+" label="Sectors" />
-              <StatItem value="30+" label="Years Experience" />
+              {stats.map((stat) => (
+                <StatItem key={stat.label} value={stat.value} label={stat.label} />
+              ))}
             </div>
           </AnimatedSection>
         </div>
@@ -123,7 +115,7 @@ export default function Portfolio() {
             <p className="text-text-muted">Additional sectors where we maintain strategic investments</p>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {otherInvestments.map((investment, index) => (
+            {otherInvestmentCards.map((investment, index) => (
               <AnimatedSection
                 key={investment.name}
                 animation="scale"
