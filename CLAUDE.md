@@ -43,3 +43,8 @@ Corporate website for Aklil Holdings, a diversified investment company led by Mr
 - `npm run verify` fails if a built page lacks its title, description, canonical, one h1 or text, if robots.txt, sitemap.xml, llms.txt or 404.html is missing, or if the sitemap doesn't match the built pages.
 - Link preview image: `public/images/og-default.png`, made from `scripts/og-image.html` (command in that file).
 - Rules: only facts already on the site; describe holdings by their role in portfolio.ts (investments are not subsidiaries); Mr. Mekdes's Nile Insurance chairmanship is in the past; `sameAs` only for profiles Daniel confirms.
+- Submitted 27 Oct 2026: Google Search Console (domain property `sc-domain:aklilholdings.com`, daniadane@gmail.com, which is /u/1/ in Daniel's Chrome): sitemap submitted (Success, 5 pages) and indexing requested for all five pages. Bing Webmaster Tools (`https://aklilholdings.com/`, verified): sitemap and all five URLs submitted. Bing's index also feeds Copilot and other AI assistants.
+
+## Domain and email DNS (Namecheap, account daniadane)
+- `aklilholdings.com`: A `@` 199.36.158.100 (Firebase). `www`: CNAME to `aklil-holdings.web.app`, set up in Firebase Hosting as a redirect to aklilholdings.com (27 Oct 2026). The Firebase project is under daniel@garrilogistics.com.
+- Email is Google Workspace only: MX via Namecheap's Gmail setting, SPF `v=spf1 include:_spf.google.com ~all`, DKIM `google._domainkey`, DMARC `v=DMARC1; p=quarantine` (since 27 Oct 2026, no report emails). Before another service sends as @aklilholdings.com, add its SPF include and DKIM record first, or its mail lands in spam.
