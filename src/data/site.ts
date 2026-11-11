@@ -122,7 +122,7 @@ export const pages = {
     name: 'Portfolio',
     title: 'Portfolio: Companies and Investments | Aklil Holdings',
     description:
-      'Aklil Holdings companies and investments in Ethiopia by sector, including Bank of Abyssinia, Nile Insurance, The Hub Hotel, Menave Industrial and WebSprix.',
+      'Aklil Holdings companies and investments in Ethiopia by sector, including Bank of Abyssinia, Nile Insurance, The Hub Hotel, Mnave Industrial PLC and WebSprix.',
   },
   achievements: {
     path: '/achievements',

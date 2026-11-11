@@ -27,7 +27,7 @@ export const sectorOrder = [
 export const companies: Company[] = [
   // Food Production & Agro-Processing
   {
-    name: "Menave Industrial",
+    name: "Mnave Industrial PLC",
     sector: "Food Production & Agro-Processing",
     role: "Owner",
     description: "Runs maize (110 tonnes/day) and teff (60 tonnes/day) mills at the group's 36,000 m² industrial site in Bahir Dar, with a 9,500 m² warehouse. Produces maize flour, teff flour, grits for baby food and semi-processed animal feed. Also imports Miavit feed premixes from Germany (dairy, layer, grower and starter) and supplies them to feed manufacturers in Ethiopia.",
