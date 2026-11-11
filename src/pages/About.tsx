@@ -1,4 +1,4 @@
-import { GraduationCap, BookOpen, Award, User, ExternalLink } from 'lucide-react'
+import { GraduationCap, BookOpen, Award, ExternalLink } from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
 import { founder, pages, press } from '@/data/site'
 import { aboutGraph } from '@/lib/jsonld'
@@ -35,7 +35,7 @@ export default function About() {
               About the <span className="text-gold">Chairman</span>
             </h1>
             <p className="text-text-muted max-w-2xl mx-auto">
-              Four decades of visionary leadership in Ethiopian business and investment.
+              Over three decades of visionary leadership in Ethiopian business and investment.
             </p>
           </AnimatedSection>
         </div>
@@ -45,12 +45,16 @@ export default function About() {
       <section className="py-16 bg-dark-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-            {/* Photo Placeholder */}
+            {/* Portrait */}
             <AnimatedSection animation="fade-right" className="lg:col-span-2">
               <div className="bg-dark-bg-light rounded-2xl border border-navy-light p-8 text-center">
-                <div className="w-48 h-48 mx-auto rounded-full bg-navy-light flex items-center justify-center mb-6">
-                  <User className="w-24 h-24 text-gold/50" />
-                </div>
+                <img
+                  src={founder.photo}
+                  alt={`${founder.displayName}, ${founder.role} of Aklil Holdings`}
+                  width={640}
+                  height={800}
+                  className="w-56 h-56 mx-auto rounded-full object-cover object-[50%_20%] ring-2 ring-gold/40 mb-6"
+                />
                 <h2 className="text-2xl font-heading font-bold text-white mb-2">
                   {founder.displayName}
                 </h2>

@@ -34,7 +34,7 @@ export default function HeroSection() {
 
           {/* Description */}
           <p className="text-text-muted text-lg max-w-2xl mx-auto mb-10 animate-fade-in-up animation-delay-300">
-            Four decades of leadership across banking, insurance, hospitality, and industry.
+            Over three decades of leadership across banking, insurance, hospitality, and industry.
           </p>
 
           {/* CTA Buttons */}

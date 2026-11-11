@@ -41,12 +41,18 @@ export default function CompanyCard({ company, showSector = true }: CompanyCardP
     <Card className="card-hover h-full">
       <CardHeader>
         <div className="flex items-start justify-between gap-2">
-          <div className="w-14 h-14 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden flex-shrink-0">
+          <div
+            className={`h-14 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0 ${
+              company.logo
+                ? `w-28 p-2 ${company.logoBg === 'light' ? 'bg-white' : 'bg-white/10'}`
+                : 'w-14 bg-white/10'
+            }`}
+          >
             {company.logo ? (
               <img
                 src={company.logo}
                 alt={`${company.name} logo`}
-                className="w-12 h-12 object-contain"
+                className="max-h-full max-w-full object-contain"
               />
             ) : (
               <Building2 className="h-6 w-6 text-gold" />

@@ -6,6 +6,10 @@ export interface Company {
   role: string
   description?: string
   logo?: string
+  /** Plate behind the logo: 'light' for logos with dark text or their own white background. */
+  logoBg?: 'light' | 'dark'
+  /** Photo of the business, shown in the Our Assets section on the home page. */
+  photo?: { src: string; alt: string; caption: string }
   status: CompanyStatus
 }
 
@@ -26,7 +30,7 @@ export const companies: Company[] = [
     name: "Menave Industrial",
     sector: "Food Production & Agro-Processing",
     role: "Owner",
-    description: "Produces grits for baby food, maize flour (widely used in Ethiopian lowlands), and semi-processed animal feed for farms.",
+    description: "Runs maize (110 tonnes/day) and teff (60 tonnes/day) mills at the group's 36,000 m² industrial site in Bahir Dar, with a 9,500 m² warehouse. Produces maize flour, teff flour, grits for baby food and semi-processed animal feed. Also imports Miavit feed premixes from Germany (dairy, layer, grower and starter) and supplies them to feed manufacturers in Ethiopia.",
     status: "operational"
   },
   {
@@ -59,6 +63,7 @@ export const companies: Company[] = [
     role: "Owner",
     description: "A premier 4-star hotel in Addis Ababa providing exceptional guest experiences.",
     logo: "/images/hubhotel.png",
+    photo: { src: "/images/hub-hotel-lobby.jpg", alt: "Lobby and reception of The Hub Hotel in Addis Ababa", caption: "Addis Ababa" },
     status: "operational"
   },
   {
@@ -74,6 +79,7 @@ export const companies: Company[] = [
     sector: "Real Estate",
     role: "Owner",
     description: "Fully leased office building in Piazza and mixed-use development near CMC Michael in Addis Ababa; mixed-use building in Bahir Dar nearing completion.",
+    photo: { src: "/images/tesfa-midir-1888-building.jpg", alt: "The 1888 Building, Tesfa Midir's office building in Piazza, Addis Ababa", caption: "1888 Building, Piazza, Addis Ababa" },
     status: "operational"
   },
   // Healthcare
@@ -91,6 +97,7 @@ export const companies: Company[] = [
     role: "Co-Founder & Shareholder",
     description: "Co-founded flagship banking institution modernizing Ethiopian financial services.",
     logo: "/images/boa.png",
+    logoBg: "light",
     status: "operational"
   },
   {
@@ -99,6 +106,7 @@ export const companies: Company[] = [
     role: "Co-Founder & Shareholder",
     description: "Co-founded insurance company providing comprehensive coverage solutions.",
     logo: "/images/nile.png",
+    logoBg: "light",
     status: "operational"
   },
   {
@@ -107,6 +115,7 @@ export const companies: Company[] = [
     role: "Founding Shareholder",
     description: "Founding shareholder of innovative microfinance institution serving SMEs and the missing middle since 2014.",
     logo: "/images/nisir.png",
+    logoBg: "light",
     status: "operational"
   },
   {
@@ -115,6 +124,7 @@ export const companies: Company[] = [
     role: "Shareholder",
     description: "Strategic turnaround investment in microfinance institution serving micro and small enterprises.",
     logo: "/images/dynamic.jpg",
+    logoBg: "light",
     status: "operational"
   },
   // Technology
@@ -166,9 +176,14 @@ export const achievements: Achievement[] = [
     description: "Became Chairman of WebSprix PLC (ISP & networking), and expanded into technology-enabled logistics and digital transformation."
   },
   {
+    year: "2026",
+    title: "Agro-Processing and Animal Feed",
+    description: "Commissioned a teff mill alongside the maize mill at the Bahir Dar industrial site, and began importing Miavit feed premixes from Germany for Ethiopian feed manufacturers."
+  },
+  {
     year: "Present",
     title: "Diversified Portfolio",
-    description: "Successfully managing investments across 10+ sectors including banking, insurance, hospitality, and technology."
+    description: "Successfully managing investments across 10+ sectors including banking, insurance, hospitality, agro-processing, animal feed, and technology."
   }
 ]
 

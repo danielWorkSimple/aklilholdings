@@ -47,6 +47,7 @@ const person = {
   nationality: { '@type': 'Country', name: company.country },
   description: founder.bio[0],
   url: absolute(pages.about.path),
+  image: absolute(founder.photo),
   alumniOf: education.map((e) => ({ '@type': 'CollegeOrUniversity', name: e.institution })),
   subjectOf: press.map((p) => ({
     '@type': 'NewsArticle',

@@ -32,6 +32,9 @@ Corporate website for Aklil Holdings, a diversified investment company led by Mr
 - Add a company: Edit `src/data/portfolio.ts`, add to `companies` array
 - Change sector order: Edit `sectorOrder` in `src/data/portfolio.ts`
 - Update stats: Edit `stats` in `src/data/site.ts` (used by the home stats bar, the portfolio page and llms.txt)
+- Show a business in the home page "Our Assets" section: give it `photo: { src, alt, caption }` in `portfolio.ts` (image in `public/images/`, resized, metadata stripped)
+- Logo with dark text or its own white background: set `logoBg: 'light'` so the card puts it on a white plate
+- Portfolio layout: sectors pack into one 3-column grid; each sector block spans as many columns as it has companies (max 3), so small sectors share a row
 - Change a page title or description: Edit `pages` in `src/data/site.ts`
 - Preview the production build locally: `npm run build && npm run preview` (Firebase hosting emulator on http://127.0.0.1:5050, same 404 and headers as live)
 

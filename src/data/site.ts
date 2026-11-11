@@ -11,7 +11,7 @@
 export const SITE_URL = 'https://aklilholdings.com'
 
 /** lastmod in the sitemap. Change it when page content changes. */
-export const UPDATED = '2026-10-27'
+export const UPDATED = '2026-11-11'
 
 /** Full URL for a site path. The home page is the bare domain with a slash. */
 export const absolute = (path: string) => (path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`)
@@ -27,7 +27,7 @@ export const OG_IMAGE = {
 export const company = {
   name: 'Aklil Holdings',
   summary:
-    'Aklil Holdings is a diversified investment group based in Addis Ababa, Ethiopia, founded and chaired by Mr. Mekdes Aklilu. Its companies and investments span financial services, food production, trading, garment manufacturing, hospitality, real estate, healthcare and technology.',
+    'Aklil Holdings is a diversified investment group based in Addis Ababa, Ethiopia, founded and chaired by Mr. Mekdes Aklilu. Its companies and investments span financial services, food and agro-processing, animal feed, trading, garment manufacturing, hospitality, real estate, healthcare and technology.',
   email: 'info@aklilholdings.com',
   city: 'Addis Ababa',
   country: 'Ethiopia',
@@ -41,6 +41,8 @@ export const founder = {
   displayName: 'Mr. Mekdes Aklilu',
   amharicName: 'መቅደስ አክሊሉ',
   role: 'Founder & Chairman',
+  /** Portrait on the About page and in structured data. */
+  photo: '/images/mekdes-aklilu.jpg',
   bio: [
     'Mr. Mekdes Aklilu is a distinguished Ethiopian businessman and investor with extensive experience spanning private and public institutional administration, education, insurance, banking, and international trade.',
     "Throughout his career, he has demonstrated exceptional leadership by chairing boards of leading corporate institutions in Ethiopia. His vision and strategic acumen have been instrumental in establishing and growing some of the country's most significant financial and commercial enterprises. He is a former chairman of the board of Nile Insurance.",
@@ -106,7 +108,7 @@ export const pages = {
     name: 'Home',
     title: 'Aklil Holdings | Diversified Investment Group in Ethiopia',
     description:
-      'Aklil Holdings, led by Mr. Mekdes Aklilu, is an investment group in Addis Ababa, Ethiopia, with holdings in banking, insurance, hospitality and industry.',
+      'Aklil Holdings, led by Mr. Mekdes Aklilu, is an investment group in Addis Ababa, Ethiopia, with holdings in banking, insurance, hospitality and agro-processing.',
   },
   about: {
     path: '/about',

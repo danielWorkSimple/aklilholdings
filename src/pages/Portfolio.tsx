@@ -19,6 +19,15 @@ function getCompaniesBySector(): Record<string, Company[]> {
 
 const companiesBySector = getCompaniesBySector()
 
+// Columns a sector block spans, and the columns inside it, by company count
+// (capped at 3). Small sectors then share a row instead of each taking a band.
+const sectorSpan = { 1: '', 2: 'md:col-span-2', 3: 'md:col-span-2 lg:col-span-3' } as const
+const sectorCols = {
+  1: 'grid-cols-1',
+  2: 'grid-cols-1 md:grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+} as const
+
 function StatItem({ value, label }: { value: string; label: string }) {
   return (
     <div className="text-center">
@@ -72,38 +81,40 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Companies by Sector */}
-      {sectorOrder.map((sector, sectorIndex) => {
-        const sectorCompanies = companiesBySector[sector]
-        if (!sectorCompanies) return null
+      {/* Companies by sector, in one compact grid */}
+      <section className="pb-16 bg-dark-bg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+            {sectorOrder.map((sector) => {
+              const sectorCompanies = companiesBySector[sector]
+              if (!sectorCompanies) return null
+              const size = Math.min(sectorCompanies.length, 3) as 1 | 2 | 3
 
-        return (
-          <section
-            key={sector}
-            className={sectorIndex % 2 === 0 ? "py-16 bg-dark-bg" : "py-16 bg-dark-bg-light"}
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <AnimatedSection>
-                <h2 className="text-2xl font-heading font-semibold text-white mb-8 flex items-center gap-3">
-                  <span className="w-1 h-8 bg-gold rounded-full"></span>
-                  {sector}
-                </h2>
-              </AnimatedSection>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sectorCompanies.map((company, index) => (
-                  <AnimatedSection
-                    key={company.name}
-                    animation="scale"
-                    delay={index * 0.1}
-                  >
-                    <CompanyCard company={company} showSector={false} />
+              return (
+                <div key={sector} className={`flex flex-col ${sectorSpan[size]}`}>
+                  <AnimatedSection>
+                    <h2 className="text-xl font-heading font-semibold text-white mb-5 flex items-center gap-3">
+                      <span className="w-1 h-6 bg-gold rounded-full"></span>
+                      {sector}
+                    </h2>
                   </AnimatedSection>
-                ))}
-              </div>
-            </div>
-          </section>
-        )
-      })}
+                  <div className={`grid flex-1 gap-6 ${sectorCols[size]}`}>
+                    {sectorCompanies.map((company, index) => (
+                      <AnimatedSection
+                        key={company.name}
+                        animation="scale"
+                        delay={index * 0.1}
+                      >
+                        <CompanyCard company={company} showSector={false} />
+                      </AnimatedSection>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* Other Investments Section */}
       <section className="py-16 bg-dark-bg-light">
